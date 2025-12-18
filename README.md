@@ -1,5 +1,4 @@
 
-```markdown
 # Host Ecology and Geospatial Distribution Pipeline
 
 This repository contains the computational framework and source code associated with the study **"Noshadi et al. (2025)"**.
