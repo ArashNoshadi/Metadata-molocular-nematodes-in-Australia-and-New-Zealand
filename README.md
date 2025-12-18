@@ -1,6 +1,9 @@
+
+```markdown
 # Host Ecology and Geospatial Distribution Pipeline
 
-This repository contains the computational framework and source code associated with the study **"Noshadi et al. (2025/2026)"**. 
+This repository contains the computational framework and source code associated with the study **"Noshadi et al. (2025)"**.
+Link https://github.com/ArashNoshadi/long-read-metabarcoding.git 
 
 The pipeline is designed to analyze nucleotide sequence metadata retrieved from NCBI GenBank, specifically focusing on samples from **Australia and New Zealand**. It performs automated host categorization based on ecological roles and generates high-resolution geospatial visualizations (pie charts overlaid on state maps) to illustrate gene distribution patterns.
 
@@ -11,7 +14,6 @@ The pipeline is designed to analyze nucleotide sequence metadata retrieved from 
 - [Features](#features)
 - [Prerequisites](#prerequisites)
 - [Installation](#installation)
-- [Usage](#usage)
   - [1. Host Categorization](#1-host-categorization)
   - [2. Geospatial Visualization](#2-geospatial-visualization)
 - [Data Structure](#data-structure)
@@ -72,10 +74,44 @@ The code is written in **Python**. Ensure you have the following dependencies in
 
 ---
 
-## Usage
 
-### 1. Host Categorization
-Run the categorization script to process your raw metadata (CSV/Excel). This script maps the `Host` column to the hierarchical categories defined in the study.
+### 2. Geospatial Visualization
+
+Generate the distribution maps with pie charts overlaid on states.
 
 ```bash
-python run_host_categorization.py --input data/raw_metadata.csv --output data/categorized_data.csv
+python run_mapping.py --input data/categorized_data.csv --output results/maps/
+
+```
+
+*The script will output `.png` or `.svg` files for each gene/family analyzed.*
+
+---
+
+## Data Structure
+
+The input data should ideally be a CSV file containing at least the following columns:
+
+| Column Name | Description |
+| --- | --- |
+| `Accession` | GenBank Accession Number |
+| `Organism` | Name of the organism |
+| `Host` | Host organism name (to be categorized) |
+| `Country` | Country of origin (Australia/New Zealand) |
+| `State` | State or Region |
+| `Latitude` | Decimal Latitude |
+| `Longitude` | Decimal Longitude |
+| `Collection_Date` | Date of sampling |
+
+---
+
+## Citation
+
+If you use this code or dataset in your research, please cite the original paper:
+
+> **Noshadi et al. (2026).** [Title of Your Paper]. 
+ DOI: [Insert DOI]
+
+---
+
+
